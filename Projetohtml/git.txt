@@ -1,0 +1,26 @@
+git config --global --list	lista as configurações do git
+git config --global user.name "nome"	Coloca o nome de usuário do GitHub
+git config --global user.email "email"	Coloca email do GitHub
+
+git rm --cached <file>
+git log
+git log --oneline
+"q" para sair
+
+git checkout <número commit log>
+git revert <número commit log>
+git reset <número commit log>
+git checkout main para voltar para o último ponto depois de ter voltado
+
+git branch nome do branch que vocÊ quer criar
+git checkout nome do branch para ir para o branch
+git branch -D nome do branch para excluir
+
+git merge nome dos branch para fundir os branch (Precisar estar no branch principal pois ele vai puxar o branch)
+
+git push https://github.com/Jhenryq/wikipediahelpdesk.git (nome do repositório e manda para o github)
+git remote add origin https://github.com/Jhenryq/wikipediahelpdesk.git (Adiciona apelido para não precisar escrever o link) (origin é apelido, mas pode ser outra coisa)
+
+git pull origin main ou git pull https://github.com/Jhenryq/wikipediahelpdesk.git main
+
+git clone https://github.com/Jhenryq/wikipediahelpdesk.git projeto1-de-fulano      clona projetos em uma pasta do seu computador
