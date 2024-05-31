@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        table {
+            -webkit-box-shadow: 13px 13px 15px 3px rgba(0,0,0,0.8); 
+box-shadow: 13px 13px 15px 3px rgba(0,0,0,0.8);
+        }
+        table thead th {
+            background-color: black;
+            color: white;
+        }
+        table tfoot td {
+            background-color: lightgrey;
+        }
+        table tbody tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+        table tbody tr:hover td {
+            background-color: rgb(172, 160, 160);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table summary="Se trata de uma tabela" width="250" align="left" cellspacing="0" cellpadding="" >
+        <caption><b>Tabela de nomes e idades</b> </caption>
+        <thead>
+            <tr>
+                <th colspan="2"><b>Minha tabela</b></th>
+            </tr>
+            <tr>
+                <th title="Nome completo">Nome</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr id="1">
+                <td>João</td>
+                <td>24</td>
+            </tr>
+            <tr id="2">
+                <td>Walter</td>
+                <td>17</td>
+            </tr>
+            <tr id="3">
+                <td>Alice</td>
+                <td>26</td>
+            </tr>
+            <tr id="4">
+                <td>Maria</td>
+                <td>38</td>
+            </tr>
+            <tr id="5">
+                <td>Carlos</td>
+                <td>49</td>
+            </tr>
+            
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>5</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
