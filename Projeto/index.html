@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de conhecimento</title>
+    <style>
+        
+        h1 {
+            text-align: center;
+        }
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            
+            
+        }
+        .vikipedia {
+            font-size: 40px;
+            display: inline;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            
+            
+            
+        }
+        .wrapper {
+            display: flex;
+            background-color: rgb(236, 236, 236);
+            height: 370px;
+            width: 300px;
+            padding: 15px;
+            border: solid 1px;
+        }
+        .menu {
+            padding: 5px;
+            font-weight: bold;
+            
+            
+        }
+        .conteudo {
+            
+        }
+        ul {
+            padding: 15px 25px;
+        }
+        .main {
+            flex-direction: row;
+        }
+        video {
+            text-align: center;
+            margin-left: 200px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="cabecalho">
+            <img width="100" src="data:image/jpeg;base64,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" alt="">
+        <h1 class="vikipedia">Vikipedia</h1>
+
+        <img class="imgfinal" width="100" src="data:image/jpeg;base64,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" alt="">
+    
+        </div>
+    </header>
+    <hr>
+
+    <main class="main">
+        <div class="wrapper">
+            <div class="menu">
+                <ul>
+                    <li>Desafios do Analista de Help Desk</li>
+                    <li>Atribuições e Responsabilidades</li>
+                    <li>Principais Problemas Enfrentados Frente ao Cliente</li>
+                    <li>Principais Problemas Enfrentados Frente ao Cliente</li>
+                    <li>Estratégias para Lidar com Desafios e Problemas</li>
+                </ul>
+            </div>
+            <video autoplay width="700" height="340" controls>
+                <source src="https://youtu.be/-oYMo8k22Vw?list=PLYHoqTjX7zMrFcyUQVTA9kNH8NoTvc3Ge">
+                <track default src="legenda.vtt" kind="captions" srclang="en"/>
+            </video><br>
+            
+        </div>
+        <div class="conteudo">
+            <h1 id="hd1">O que é um Analista de Help Desk?</h1>
+    
+            <p>
+                    O analista de help desk é um profissional que atua na linha de frente do suporte
+            técnico, ajudando os usuários a resolverem problemas com a conexão de internet e outros
+            serviços relacionados. Ele é responsável por oferecer suporte técnico e orientação aos
+            usuários da empresa, <del>buscando</del> solucionar problemas técnicos de forma ágil e eficiente.
+            </p>
+             <p>
+            <small>Uma das principais funções do analista de help desk é receber e responder
+            chamados de suporte técnico dos usuários. Ele deve estar preparado para lidar com uma
+            ampla variedade de problemas, como falhas na conexão de internet, configuração de
+            roteadores, problemas com e-mails, entre outros.</small>
+            </p>
+             <p>
+             <sob>O analista de help desk também deve ser capaz de identificar problemas mais
+            complexos e encaminhá-los para os profissionais especializados da empresa, se
+            necessário. Ele deve ter conhecimentos básicos em redes, sistemas operacionais e
+            softwares, bem como habilidades de resolução de problemas e comunicação efetiva.</sob>
+            </p>
+             <p>
+                    Além disso, o analista de help desk deve manter registros precisos de todos os
+            chamados de suporte técnico, documentando as soluções para futuras referências e
+            análises de desempenho. Ele também deve ser capaz de gerenciar e monitorar os sistemas
+            de suporte técnico da empresa, identificando tendências e padrões que possam indicar
+            problemas maiores.
+            </p>
+            <p>
+                    Outra função importante do analista de help desk é garantir a satisfação do cliente.
+            Ele deve ser capaz de comunicar-se com clareza e paciência, entender as necessidades
+            dos usuários e fornecer soluções adequadas. Ele deve ter habilidades interpessoais, como
+            empatia e compreensão, para lidar com clientes insatisfeitos e lidar com situações difíceis.
+             </p>
+            <h2 id="hd2">
+                Desafios do Analista de Help Desk
+            </h2>
+            <ul>
+                <li>
+                    Volume e diversidade de solicitações: Lidar com um grande número de solicitações
+        de clientes com diferentes níveis de conhecimento técnico.
+                </li>
+                <li>
+                    Ambiente em constante evolução: Acompanhar as mudanças tecnológicas e
+        atualizações de serviços da provedora de internet.
+                </li>
+                <li>
+                    Pressão do tempo: Resolver problemas de forma eficiente e dentro de prazos
+                    estabelecidos.
+                </li>
+                <li>
+                    Comunicação efetiva: Transmitir informações técnicas de forma clara e
+        compreensível para os clientes.
+                </li>
+            </ul>
+            <h2 id="hd2">
+                Atribuições e Responsabilidades
+            </h2>
+            <ul>
+                <li>
+                    Atendimento ao cliente: Receber e responder solicitações e incidentes dos clientes
+        por telefone ou chat.
+                </li>
+                <li>
+                    Diagnóstico e resolução de problemas: Identificar e solucionar problemas
+        relacionados à conexão de internet, configurações de rede, instalação de
+        equipamentos, entre outros.
+                </li>
+                <li>
+                    Gerenciamento de chamados: Registrar, rastrear e documentar todas as interações
+                    com os clientes, garantindo a resolução adequada dos problemas.  
+                </li>
+                <li>
+                    Orientação e treinamento: Fornecer orientações e treinamentos básicos aos clientes
+        sobre o uso correto dos serviços de internet.
+                </li>
+            </ul>
+            <h2 id="hd2">
+                Principais Problemas Enfrentados Frente ao Cliente
+            </h2>
+            <ul>
+                <li>
+                    Conexão instável ou inexistente: Solucionar problemas relacionados à perda de
+        conexão, lentidão ou interrupção do serviço.
+                </li>
+                <li>
+                    Configurações de rede: Ajudar os clientes a configurar corretamente seus
+        roteadores, dispositivos e redes locais.
+                </li>
+                <li>
+                    Suporte técnico remoto: Auxiliar os clientes por meio de acesso remoto aos seus
+        dispositivos, solucionando problemas diretamente via AnyDesk ou outro dispositivo
+        remoto.
+                </li>
+            </ul>
+            <h2 id="hd2">
+                Estratégias para Lidar com Desafios e Problemas
+            </h2>
+            <ul>
+                <li>
+                    Treinamento e atualização contínua: Manter-se atualizado sobre tecnologias
+                    emergentes e fornecer treinamentos para aprimorar as habilidades técnicas e de
+                    comunicação.
+                </li>
+                <li>
+                    <sup>Gerenciamento eficiente de tempo: Utilizar ferramentas de gerenciamento de
+                        chamados e estabelecer prioridades para garantir uma resolução rápida e eficaz dos
+                        problemas.</sup>
+                </li>
+                <li>
+                    <sub>Empatia e resolução proativa: Abordar os problemas dos clientes com empatia,
+                        paciência e buscar soluções proativas para melhorar a experiência do cliente.</sub>
+                </li>
+            </ul>
+            <h2 id="hd2">Principais problemas de internet:</h2>
+            <h2>Luz vermelha (LOS):</h3>
+            <p>
+                A luz vermelha pode indicar uma perda de sinal na conexão de fibra óptica. As casas
+        mais prováveis são: Conector fora ou danificado na <abbr title="Caixa de terminação óptica">CTO</abbr> ou <abbr title="Unidadade de fibra óptica">ONU</abbr>, cabo drop rompido entre
+        outro problemas relacionados a fibra
+            </p>
+            <h3>Sinal alto:</h3>
+            <blockquote>Sinal alto é um problema que o cliente relata como instabilidade e oscilações ou até
+                mesmo desconexões quando o sinal está muito alto, também é um problema relacionado a
+                fibra quando há uma forte atenuação no drop ou na fibra dos conectores assim como
+                alguma sujeira também podem aumentar o sinal, alguns problemas podem ser relacionados
+                a CTO com sinal alto, verificar os demais clientes conectados ao transmissor.</blockquote>
+            <h3>Sem internet:</h3>
+            <p>
+                Quando o cliente relata interrupção em sua conexão, pode ocorrer diversos motivos,
+        entre eles são: Equipamento queimado, problemas na fonte, tomada apresentando
+        problemas, bloqueio financeiro entre outras, mas também podendo ser algum problema
+        relacionado a um dispositivo específico. Aqui está algumas situações:
+            </p>
+            <ul>
+                <li>liente sem internet apenas nos dispositivos wi-fi:  Possível que seja um caso que na
+                    rede esteja “Conectado, sem internet” nesse caso pode ser uma das SID 2.4 ou 5G
+                    esteja desativada, alguns casos pede-se para o cliente reiniciar o aparelho ou
+                    esquecer a sua rede e conectar novamente digitando a sua senha para voltar a
+                    funcionar.</li>
+                <li>Cliente sem internet apenas nos dispositivos cabeados: Verificar se a porta de rede
+                    do computador está funcionando, normalmente acende uma luz verde atrás, pode
+                    ser um problema na entrada do adaptador de rede ou no cabo UTP</li>
+            </ul>
+            <h3>Problemas telefonia:</h3>
+            <p>Primeiramente devemos identificar quais problemas está ocorrendo na linha do
+                cliente, para isso realiza-se algumas perguntas:</p>
+            <ul>
+                <li>O telefone está realizando ligações?</li>
+                <li>O telefone está recebendo ligações?</li>
+                <li>Seria em algum número específico que não está realizando ligações?</li>
+            </ul>
+            <p>Alguns problemas possíveis pode ser falta de pagamento, discagem de número de
+                forma errada, número não registrado e bloqueio na <strong>plataforma Zeus</strong> que pode ser acessado
+                pelo link <a href="https://administrator.tipbrasil.com.br/zeus_admin/cp_zeus/login.php" target="_blank">https://administrator.tipbrasil.com.br/zeus_admin/cp_zeus/login.php</a> seguindos as
+                seguintes credênciais:</p>
+            <p>Há alguns testes que podemos realizar pelo MicroSip para testar se a linha do
+                cliente está realizando chamadas e recebendo ou para testar se o número ou serviço que o
+                cliente está tentando discar está funcionando.
+                Primeiro deve-se baixar o aplicativo MicroSip pelo site:</p>
+                <i><a href="https://www.microsip.org/downloads
+                " target="_blank">https://www.microsip.org/downloads</i>
+            </a>
+            <h3>Internet lenta:</h3>
+            <p>No caso da internet lenta deve se fazer uma análise mais minuciosa, é importante
+                fazer algumas perguntas para entender melhor a situação e identificar possíveis causas.
+                Aqui estão algumas perguntas úteis que você pode fazer:
+                </p>
+            <ol>
+                <li><strong>Descrição do problema:</strong></li>
+                <ul>
+                    <li>Como você descreveria a lentidão da sua conexão de internet?</li>
+                    <li>Há quanto tempo você vem enfrentando esse problema?</li>
+                </ul><br>
+                <li><strong>Dispositivos afetados:</strong></li>
+                <ul>
+                    <li>A lentidão da internet ocorre em todos os dispositivos conectados ou apenas
+                        em um dispositivo específico?
+                        </li>
+                    <li>Você notou diferenças na velocidade em diferentes dispositivos?
+                    </li><br>
+                </ul>
+                <li><strong>Localização e conexão:</strong></li>
+                <ul>
+                    <li>Você está conectado à rede Wi-Fi ou usando uma conexão com fio
+                        (Ethernet)?</li>
+                    <li>A lentidão da internet é específica para um determinado local em sua casa
+                        ou ocorre em toda a residência?
+                        </li>
+                </ul><br>
+                <li><strong>Testes de velocidade:</strong></li>
+                <ul>
+                    <li>Você já realizou testes de velocidade da internet? Se sim, qual foi o
+                        resultado?</li>
+                    <li>Você pode executar um teste de velocidade agora e fornecer os resultados?
+                    </li>
+                </ul><br>
+                <li><strong>Horários específicos:</strong></li>
+                <ul>
+                    <li>A lentidão da internet ocorre em horários específicos do dia?</li>
+                    <li>A velocidade da internet é mais lenta durante eventos ou atividades
+                        específicas, como downloads de grandes arquivos ou streaming de vídeo?</li>
+                </ul><br>
+                <li><strong>Mudanças recentes:</strong></li>
+                <ul>
+                    <li>Houve alguma mudança em sua rede ou configuração recentemente, como a
+                        adição de novos dispositivos ou atualizações de software?
+                        </li>
+                    <li>Você instalou recentemente algum novo programa ou aplicativo em seus
+                        dispositivos?
+                        </li>
+                </ul>
+            </ol>
+
+        </div>
+        
+
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    
+    
+    
+</body>
+</html>
