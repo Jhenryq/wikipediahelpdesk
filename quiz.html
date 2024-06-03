@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Soma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        select, button {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .question-blocks {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .question-block {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            box-sizing: border-box;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #timer {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz de Soma</h1>
+        <p>Escolha um nível de dificuldade para começar:</p>
+        <select id="difficulty">
+            <option value="easy">Fácil</option>
+            <option value="medium">Médio</option>
+            <option value="hard">Difícil</option>
+        </select>
+        <button onclick="startQuiz()">Começar</button>
+        <p id="timer" class="hidden">Tempo: 0s</p>
+    </div>
+
+    <div id="quiz" class="container hidden">
+        <div class="question-blocks">
+            <div id="block1" class="question-block">
+                <h2>Bloco 1</h2>
+                <div id="questions1"></div>
+            </div>
+            <div id="block2" class="question-block">
+                <h2>Bloco 2</h2>
+                <div id="questions2"></div>
+            </div>
+            <div id="block3" class="question-block">
+                <h2>Bloco 3</h2>
+                <div id="questions3"></div>
+            </div>
+        </div>
+        <button onclick="checkAllAnswers()">Verificar Respostas</button>
+        <p id="feedback" class="feedback hidden"></p>
+    </div>
+
+    <script>
+        const questionsPerBlock = 10;
+        let startTime;
+        let timerInterval;
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        function generateQuestions(level, count) {
+            let questions = [];
+
+            for (let i = 0; i < count; i++) {
+                let numbers = [];
+                if (level === "easy") {
+                    numbers = [getRandomNumber(), getRandomNumber()];
+                } else if (level === "medium") {
+                    numbers = [getRandomNumber(), getRandomNumber(), getRandomNumber()];
+                } else if (level === "hard") {
+                    numbers = [getRandomNumber(), getRandomNumber(), getRandomNumber(), getRandomNumber()];
+                }
+
+                let question = numbers.join(" + ");
+                let sum = numbers.reduce((a, b) => a + b, 0);
+                questions.push({ question, sum });
+            }
+
+            return questions;
+        }
+
+        function startQuiz() {
+            const level = document.getElementById("difficulty").value;
+            const quizContainer = document.getElementById("quiz");
+
+            const questions1 = generateQuestions(level, questionsPerBlock);
+            const questions2 = generateQuestions(level, questionsPerBlock);
+            const questions3 = generateQuestions(level, questionsPerBlock);
+
+            renderQuestions('questions1', questions1);
+            renderQuestions('questions2', questions2);
+            renderQuestions('questions3', questions3);
+
+            quizContainer.classList.remove("hidden");
+            document.getElementById("timer").classList.remove("hidden");
+
+            startTime = new Date();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function renderQuestions(containerId, questions) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.classList.add('question');
+                questionElement.innerHTML = `
+                    <p>${q.question} = <input type="number" data-answer="${q.sum}" class="answer"></p>
+                `;
+                container.appendChild(questionElement);
+            });
+        }
+
+        function updateTimer() {
+            const currentTime = new Date();
+            const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+            document.getElementById("timer").innerText = `Tempo: ${elapsedTime}s`;
+        }
+
+        function checkAllAnswers() {
+            clearInterval(timerInterval);
+            let correctCount = 0;
+            let totalCount = 0;
+            const blocks = [1, 2, 3];
+
+            blocks.forEach(block => {
+                const answers = document.querySelectorAll(`#questions${block} .answer`);
+                answers.forEach(answer => {
+                    const userAnswer = parseInt(answer.value);
+                    const correctAnswer = parseInt(answer.getAttribute('data-answer'));
+                    if (userAnswer === correctAnswer) {
+                        correctCount++;
+                    }
+                    totalCount++;
+                });
+            });
+
+            const elapsedTime = Math.floor((new Date() - startTime) / 1000);
+            const feedbackElement = document.getElementById("feedback");
+            feedbackElement.innerText = `Você acertou ${correctCount} de ${totalCount} perguntas em ${elapsedTime} segundos.`;
+            feedbackElement.classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
